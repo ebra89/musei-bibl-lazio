@@ -1,0 +1,52 @@
+<Dashboard>:
+
+
+    FloatLayout:
+
+        MDLabel:
+            id: sub_title
+            pos_hint: {"center_x":.5,"top":.98}
+            size_hint: (.5,.2)
+            theme_text_color: "Primary"
+            font_style: "H5"
+            haling: "center"
+            text: root.sub_title
+
+        MDTextField:
+            id: binary_number
+            pos_hint:{"x": .34,"top": .8}
+            size_hint: (.3,.1)
+            haling: "center"
+            hint_text: root.hint_binary_number
+
+        MDRaisedButton:
+            pos_hint:{"x": .35,"top": .55}
+            size_hint: (.3,.1)
+            text: "converti"
+            on_release: root.is_binary(binary_number.text)
+
+
+        MDLabel:
+            id: solution
+            pos_hint:{"center_x": .6,"top": .4}
+            size_hint: (.5,.1)
+            haling: "center"
+
+
+
+        #MDRoundFlatButton:
+            #pos_hint: {"x": .3,"y":.3}
+            #size_hint: (.4, .4)
+            #text: 'screen dashboard'
+
+
+
+            #ScrollView:
+        #GridLayout:
+            #id: grid_banner
+            #cols: 1
+            #padding: 10,10
+            #spacing: 10, 10
+            #size_hint_y: None
+            #height: self.minimum_height
+            #row_default_height: 150

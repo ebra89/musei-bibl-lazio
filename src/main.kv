@@ -1,0 +1,104 @@
+#:import MapView kivy_garden.mapview.MapView
+#: include kv/dashboard.kv
+#: include kv/settings.kv
+#: include kv/homeView.kv
+#: include kv/museiView.kv
+#: include kv/bibliotecaView.kv
+
+NavigationLayout:
+    id: nav_layout
+
+    ScreenManager:
+
+        Screen:
+
+            BoxLayout:
+                orientation:"vertical"
+
+                MDToolbar:
+                    id: tool_bar
+                    title: app.title
+                    elevation: 10
+                    right_action_items: [["magnify", lambda x: app.search_menu.open()]]
+                    left_action_items: [["menu", lambda x: nav_drawer.set_state()]]
+
+                ScreenManager:
+                    id:screen_manager
+                    HomeView:
+                        id:home_view
+                        name:"home_view"
+                    MuseiView:
+                        id: musei_view
+                        name: "musei_view"
+                    BibliotecaView:
+                        id: biblioteca_view
+                        name: "biblioteca_view"
+                    Dashboard:
+                        id: dashboard
+                        name:"dashboard"
+                    SttingsScreen:
+                        id:settings_screen
+                        name:"settings_screen"
+
+
+
+    MDNavigationDrawer:
+        id: nav_drawer
+
+
+        BoxLayout:
+            orientation:"vertical"
+            padding: "8dp"
+            spacing: "8dp"
+
+            Image:
+                size_hint: None,None
+                size: "150dp","150dp"
+                padding: 20
+                #source: "src/img/destination.png"
+
+            ScrollView:
+
+                MDList:
+
+                    OneLineIconListItem:
+                        text: "Home"
+                        on_release:
+                            screen_manager.current = "home_view"
+                            nav_drawer.set_state()
+                        IconLeftWidget:
+                            icon: "home"
+
+                    OneLineIconListItem:
+                        text: "Musei"
+                        on_release:
+                            screen_manager.current = "musei_view"
+                            nav_drawer.set_state()
+                        IconLeftWidget:
+                            icon: "home"
+
+                    OneLineIconListItem:
+                        text: "Biblioteche"
+                        on_release:
+                            screen_manager.current = "biblioteca_view"
+                            nav_drawer.set_state()
+                        IconLeftWidget:
+                            icon: "library"
+
+                    OneLineIconListItem:
+                        text: "Dashboard"
+                        on_release:
+                            screen_manager.current = "dashboard"
+                            nav_drawer.set_state()
+                        IconLeftWidget:
+                            icon: "view-dashboard"
+
+                    OneLineIconListItem:
+                        text: "settings"
+                        on_release:
+                            screen_manager.current = "settings_screen"
+                            nav_drawer.set_state()
+                        IconLeftWidget:
+                            icon: "car"
+
+

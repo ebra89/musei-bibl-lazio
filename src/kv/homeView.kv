@@ -1,0 +1,16 @@
+#:import MapView kivy_garden.mapview.MapView
+
+<HomeView>:
+    FloatLayout:
+        HomeMapView:
+            id: home_map_view
+
+
+
+
+<HomeMapView>:
+    lat: 41.9109
+    lon: 12.4818
+    zoom: 6
+    on_zoom:
+        self.zoom = 6 if self.zoom < 6 else self.zoom

@@ -1,0 +1,13 @@
+#:import MapView kivy_garden.mapview.MapView
+
+
+<BibliotecaMapView>:
+    lat: 41.9109
+    lon: 12.4818
+    zoom: 11
+    on_zoom:
+        self.zoom = 11 if self.zoom < 11 else self.zoom
+    on_lat:
+        self.start_getting_biblio_in_fov()
+    on_lon:
+        self.start_getting_biblio_in_fov()

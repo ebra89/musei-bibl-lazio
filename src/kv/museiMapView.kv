@@ -1,0 +1,13 @@
+#:import MapView kivy_garden.mapview.MapView
+
+
+<MuseiMapView>:
+    lat: 41.9109
+    lon: 12.4818
+    zoom: 13
+    on_zoom:
+        self.zoom = 13 if self.zoom < 13 else self.zoom
+    on_lat:
+        self.start_getting_musei_in_fov()
+    on_lon:
+        self.start_getting_musei_in_fov()
